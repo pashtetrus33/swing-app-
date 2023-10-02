@@ -26,7 +26,7 @@ public class MainCanvas extends JPanel {
             throw new RuntimeException(e);
         }
         float deltaTime = (System.nanoTime() - lastFrameTime) * 0.000000001f;
-        //System.out.println("Delta time: " + deltaTime);
+        System.out.println("Delta time: " + deltaTime);
         controller.onDrawFrame(this, g, deltaTime);                // doing something useful
         lastFrameTime = System.nanoTime();
         repaint();             // while(true)

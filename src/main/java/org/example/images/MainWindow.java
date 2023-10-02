@@ -1,9 +1,9 @@
-package org.example.circles;
+package org.example.images;
 
 import org.example.common.Background;
 import org.example.common.CanvasRepaidListener;
-import org.example.common.MainCanvas;
 import org.example.common.Interactable;
+import org.example.common.MainCanvas;
 
 import javax.swing.*;
 import java.awt.*;
@@ -32,10 +32,10 @@ public class MainWindow extends JFrame implements CanvasRepaidListener, Thread.U
     MainWindow() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setBounds(POS_X, POS_Y, WINDOW_WIDTH, WINDOW_HEIGHT);
-        setTitle("Bricks");
+        setTitle("Images");
         for (int i = 0; i < 3; i++) {
             System.out.println("Amount: " + ++count);
-            interactables[i] = new Ball();
+            interactables[i] = new ImageFigure();
         }
         interactables[interactables.length - 1] = new Background();
         MainCanvas canvas = new MainCanvas(this);
@@ -47,14 +47,15 @@ public class MainWindow extends JFrame implements CanvasRepaidListener, Thread.U
                     count++;
                     if (count >= ARRAY_SIZE) {
                         count = ARRAY_SIZE - 1;
-                        throw new RuntimeException("Maximum amount of balls: " + (ARRAY_SIZE - 1));
+                        throw new RuntimeException("Maximum amount of images: " + (ARRAY_SIZE - 1));
                     }
-                    interactables[count -1] = new Ball();
+                    interactables[count - 1] = new ImageFigure();
                     System.out.println("Add command. Amount: " + count);
                 } else if (e.getButton() == 3) {
+
                     if (count <= 0) {
                         count = 0;
-                        throw new RuntimeException("Minimum amount of balls: 0");
+                        throw new RuntimeException("Minimum amount of images: 0");
                     }
                     interactables[count - 1] = null;
                     count--;
