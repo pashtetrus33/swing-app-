@@ -2,7 +2,6 @@ package org.example.images;
 
 import org.example.common.Interactable;
 import org.example.common.MainCanvas;
-import org.example.common.Sprite;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -34,8 +33,6 @@ public class ImageFigure implements Interactable {
     public void update(MainCanvas canvas, float deltaTime) {
         x += vX * deltaTime;
         y += vY * deltaTime;
-        System.out.println("Update x: " + x);
-        System.out.println("Update y: " + y);
 
         if (x < canvas.getLeft() -50) {
             x = canvas.getLeft() -50;
